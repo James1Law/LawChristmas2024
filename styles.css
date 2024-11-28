@@ -1,0 +1,136 @@
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #f0f0f0;
+    background-image: url('https://www.transparenttextures.com/patterns/snow.png');
+    margin: 0;
+    padding: 10px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+h1 {
+    text-align: center;
+    color: #c41e3a;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+}
+
+.lists-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    padding: 10px;
+}
+
+.wishlist-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+    .wishlist-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.wishlist-card h2 {
+    color: #2c5530;
+    border-bottom: 2px solid #c41e3a;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    font-size: clamp(1.1rem, 4vw, 1.5rem);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+@supports (-webkit-touch-callout: none) {
+    .wishlist-card {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    li {
+        padding: 14px 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    body {
+        padding: 5px;
+    }
+    
+    .lists-container {
+        gap: 10px;
+    }
+    
+    .wishlist-card {
+        padding: 12px;
+    }
+}
+
+.wishlist-card.kids-list {
+    background-color: #fff9f9;
+    border: 2px solid #ffd1dc;
+}
+
+.wishlist-card.kids-list h2 {
+    color: #ff69b4;
+}
+
+.wishlist-card.baby-list {
+    background-color: #e6f3ff;
+    border: 2px solid #b3d9ff;
+}
+
+.wishlist-card.baby-list h2 {
+    color: #4d94ff;
+}
+
+.family-group {
+    margin-bottom: 40px;
+}
+
+.family-label {
+    color: #2c5530;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    margin: 30px 10px 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed #c41e3a;
+}
+
+.family-group.grandma {
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.family-label.grandma {
+    color: #8b0000;  /* Deeper red for emphasis */
+    border-bottom: 3px solid #c41e3a;
+}
+
+.wishlist-card.grandma {
+    background-color: #fff5e6;  /* Warm, golden background */
+    border: 2px solid #ffd700;  /* Golden border */
+}
+
+.wishlist-card.grandma h2 {
+    color: #8b0000;
+}
