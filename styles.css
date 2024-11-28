@@ -23,7 +23,7 @@ h1 {
 .lists-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 15px;
+    gap: 25px;
     padding: 10px;
 }
 
@@ -34,6 +34,7 @@ h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
     -webkit-tap-highlight-color: transparent;
+    margin-bottom: 20px;
 }
 
 @media (hover: hover) {
@@ -78,11 +79,12 @@ li {
     }
     
     .lists-container {
-        gap: 10px;
+        gap: 15px;
     }
     
     .wishlist-card {
         padding: 12px;
+        margin-bottom: 15px;
     }
 }
 
@@ -104,8 +106,17 @@ li {
     color: #4d94ff;
 }
 
+.wishlist-card.baby-girl-list {
+    background-color: #fff0f5;  /* Soft pink background */
+    border: 2px solid #ffb6c1;  /* Light pink border */
+}
+
+.wishlist-card.baby-girl-list h2 {
+    color: #db7093;  /* Dusty rose color */
+}
+
 .family-group {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
 .family-label {
