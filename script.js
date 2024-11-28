@@ -43,15 +43,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (targetCard) {
-            // Get the element's position relative to the viewport
-            const rect = targetCard.getBoundingClientRect();
-            const absoluteTop = window.pageYOffset + rect.top - 20; // 20px offset for spacing
-
-            // Scroll to position
-            window.scrollTo({
-                top: absoluteTop,
-                behavior: 'smooth'
-            });
+            // Calculate scroll position
+            const offset = targetCard.offsetTop - 20;
+            
+            // Try different scroll methods for better cross-browser compatibility
+            try {
+                // First attempt: modern smooth scroll
+                window.scrollTo({
+                    top: offset,
+                    behavior: 'smooth'
+                });
+            } catch (error) {
+                // Fallback for older browsers or problematic implementations
+                window.scrollTo(0, offset);
+            }
             
             // Add highlight effect
             targetCard.classList.add('highlight');
