@@ -180,3 +180,53 @@ li {
 .wishlist-card.teen-boy-list h2 {
     color: #2c5282;  /* Navy blue text */
 }
+
+.filter-container {
+    text-align: center;
+    margin: 20px auto 30px;
+    max-width: 300px;
+}
+
+.filter-container label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c5530;
+    font-size: 1.1rem;
+}
+
+.filter-container select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #c41e3a;
+    border-radius: 8px;
+    font-family: 'Lato', sans-serif;
+    font-size: 1rem;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
+}
+
+.filter-container select:focus {
+    border-color: #2c5530;
+    box-shadow: 0 0 5px rgba(44, 85, 48, 0.3);
+}
+
+/* Style for the option groups */
+.filter-container optgroup {
+    font-weight: bold;
+    color: #2c5530;
+}
+
+.filter-container option {
+    padding: 5px;
+}
+
+@keyframes highlight {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+.highlight {
+    animation: highlight 1s ease;
+}
