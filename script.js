@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             'conor': "Conor's List",
             'edith': "Edith's List",
             'arthur': "Arthur's List",
-            'katie': "Katie's List",
+            'katie': "Sparrow's List",
             'anton': "Anton's List",
             'madeleine': "Madeleine's List",
             'freya': "Freya's List",
