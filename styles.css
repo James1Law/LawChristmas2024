@@ -160,3 +160,12 @@ li {
         text-align: center;
     }
 }
+
+.wishlist-card.teen-boy-list {
+    background-color: #f0f4f8;  /* Light blue-grey background */
+    border: 2px solid #2c5282;  /* Navy blue border */
+}
+
+.wishlist-card.teen-boy-list h2 {
+    color: #2c5282;  /* Navy blue text */
+}
