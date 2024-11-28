@@ -134,3 +134,29 @@ li {
 .wishlist-card.grandma h2 {
     color: #8b0000;
 }
+
+.wishlist-card a {
+    color: #0066cc;
+    text-decoration: none;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background-color: #f0f8ff;
+    margin-left: 5px;
+    font-size: 0.9em;
+    transition: all 0.2s ease;
+}
+
+.wishlist-card a:hover {
+    background-color: #0066cc;
+    color: white;
+}
+
+/* Make links more touch-friendly on mobile */
+@media (max-width: 768px) {
+    .wishlist-card a {
+        display: block;
+        margin: 5px 0;
+        padding: 8px 12px;
+        text-align: center;
+    }
+}
