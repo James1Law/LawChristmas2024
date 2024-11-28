@@ -43,10 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         if (targetCard) {
-            // Smooth scroll to the selected card
-            targetCard.scrollIntoView({ 
-                behavior: 'smooth', 
-                block: 'center'
+            // Get the element's position relative to the viewport
+            const rect = targetCard.getBoundingClientRect();
+            const absoluteTop = window.pageYOffset + rect.top - 20; // 20px offset for spacing
+
+            // Scroll to position
+            window.scrollTo({
+                top: absoluteTop,
+                behavior: 'smooth'
             });
             
             // Add highlight effect
