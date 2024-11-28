@@ -5,38 +5,52 @@ document.addEventListener('DOMContentLoaded', function() {
         const selected = this.value;
         if (!selected) return;
 
-        // Create a map of values to titles
+        // Create a map of values to titles and family groups
         const titleMap = {
-            'grandma': "Grandma's List",
-            'rachel': "Rachel's List",
-            'conor': "Conor's List",
-            'edith': "Edith's List",
-            'arthur': "Arthur's List",
-            'katie': "Sparrow's List",
-            'anton': "Anton's List",
-            'madeleine': "Madeleine's List",
-            'freya': "Freya's List",
-            'isabelle': "Isabelle's List",
-            'emma': "Emma's List",
-            'james-wright': "James's List",
-            'henry': "Henry's List",
-            'florence': "Florence's List",
-            'matilda': "Matilda's List",
-            'james-law': "James's List",
-            'gemma': "Gemma's List"
+            'grandma': { title: "Grandma's List", family: "grandma" },
+            'rachel': { title: "Rachel's List", family: "Team Clarendon" },
+            'conor': { title: "Conor's List", family: "Team Clarendon" },
+            'edith': { title: "Edith's List", family: "Team Clarendon" },
+            'arthur': { title: "Arthur's List", family: "Team Clarendon" },
+            'katie': { title: "Sparrow's List", family: "The Walkers" },
+            'anton': { title: "Anton's List", family: "The Walkers" },
+            'madeleine': { title: "Madeleine's List", family: "The Walkers" },
+            'freya': { title: "Freya's List", family: "The Walkers" },
+            'isabelle': { title: "Isabelle's List", family: "The Walkers" },
+            'emma': { title: "Emma's List", family: "The Wrights" },
+            'james-wright': { title: "James's List", family: "The Wrights" },
+            'henry': { title: "Henry's List", family: "The Wrights" },
+            'florence': { title: "Florence's List", family: "The Wrights" },
+            'matilda': { title: "Matilda's List", family: "The Wrights" },
+            'james-law': { title: "James's List", family: "The Laws" },
+            'gemma': { title: "Gemma's List", family: "The Laws" }
         };
 
-        // Find the corresponding title
-        const title = titleMap[selected];
-        if (!title) return;
+        // Find the corresponding title and family
+        const info = titleMap[selected];
+        if (!info) return;
 
-        // Find all h2 elements
-        const h2Elements = document.querySelectorAll('.wishlist-card h2');
+        // Find all family labels
+        const familyLabels = document.querySelectorAll('.family-label');
+        let familyGroup = null;
+
+        // Find the correct family group
+        for (let label of familyLabels) {
+            if (label.textContent.includes(info.family)) {
+                familyGroup = label.closest('.family-group');
+                break;
+            }
+        }
+
+        if (!familyGroup) return;
+
+        // Find all h2s in this family group
+        const h2Elements = familyGroup.querySelectorAll('.wishlist-card h2');
         let targetCard = null;
 
-        // Find the card with matching title
+        // Find the correct card
         for (let h2 of h2Elements) {
-            if (h2.textContent.includes(title)) {
+            if (h2.textContent.includes(info.title)) {
                 targetCard = h2.closest('.wishlist-card');
                 break;
             }
@@ -48,13 +62,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Try different scroll methods for better cross-browser compatibility
             try {
-                // First attempt: modern smooth scroll
                 window.scrollTo({
                     top: offset,
                     behavior: 'smooth'
                 });
             } catch (error) {
-                // Fallback for older browsers or problematic implementations
                 window.scrollTo(0, offset);
             }
             
@@ -66,11 +78,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
-
-// Helper function to capitalize first letter
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
 
 // Add custom contains selector for case-insensitive search
 jQuery.expr[':'].contains = function(a, i, m) {
